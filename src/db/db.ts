@@ -1,8 +1,3 @@
-export type CourseType = {
-    id: number,
-    title: string
-    studentsCount: number
-}
 
 export const db: DBType = {
     courses: [
@@ -15,12 +10,19 @@ export const db: DBType = {
         {id: 1, userName: 'dimych'},
         {id: 2, userName: 'ivan'},
     ],
-    studentCourseBindings: [
-        {studentId: 1, courseId: 1, date: new Date(2022, 10, 1)},
-        {studentId: 1, courseId: 2, date: new Date(2022, 10, 1)},
-        {studentId: 2, courseId: 2, date: new Date(2022, 10, 1)}
+    userCourseBindings: [
+        {userId: 1, courseId: 1, date: new Date(2022, 10, 1)},
+        {userId: 1, courseId: 2, date: new Date(2022, 10, 1)},
+        {userId: 2, courseId: 2, date: new Date(2022, 10, 1)}
     ]
 }
+
+export type CourseType = {
+    id: number,
+    title: string
+    studentsCount: number
+}
+
 
 
 export type UserType = {
@@ -28,8 +30,8 @@ export type UserType = {
     userName: string
 }
 
-export type StudentCourseBindings = {
-    studentId: number,
+export type UserCourseBindingType = {
+    userId: number,
     courseId: number
     date: Date
 }
@@ -38,5 +40,5 @@ export type StudentCourseBindings = {
 export type DBType = {
     courses: CourseType[],
     users: UserType[],
-    studentCourseBindings: StudentCourseBindings[]
+    userCourseBindings: UserCourseBindingType[]
 }
